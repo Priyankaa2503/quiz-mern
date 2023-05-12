@@ -3,15 +3,17 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const quizRoutes = require("./routes/quiz")
 const questionRoutes = require("./routes/questions")
-
+const cors = require("cors");
 const path = require('path')
-const app =express();
+
+const app = express();
 dotenv.config();
 connectDB();
 app.use(express.json());
+app.use(cors());
 
-// app.use(express.urlencoded({extended:false}));
-const PORT =process.env.PORT || 3002;
-app.listen(PORT, console.log(`server started on port ${PORT}`));
-app.use("/api/quiz",quizRoutes);
-app.use("/api/question",questionRoutes);
+const PORT = process.env.PORT || 3002;
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+app.use("/api/quiz", quizRoutes);
+app.use("/api/question", questionRoutes);
