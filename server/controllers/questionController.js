@@ -1,4 +1,4 @@
-const Question = require("../models/Question");
+const Question = require("../models/question");
 const asyncHandler=require("express-async-handler");
 const getQuestion = asyncHandler(async(req,res)=>{
         const Questions = await Question.find(req.params.id);
