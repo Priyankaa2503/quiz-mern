@@ -21,8 +21,8 @@ const Game = ({ data, showAnswers, handleNextQuestion, handleAnswer }) => {
 
   return (
     <div className="p-10 h-screen w-full bg-[#313131]">
-      <div className="bg-[#734EDC] rounded-2xl shadow-2xl h-[500px] md:h-[820px] w-full pl-6 py-6">
-        <div className="bg-[#545757] w-full h-[500px] md:h-[850px] rounded-2xl p-6">
+      <div className="bg-[#734EDC] rounded-2xl shadow-2xl h-[550px] md:h-[820px] w-full pl-6 py-6">
+        <div className="bg-[#545757] w-full h-[600px] md:h-[850px] rounded-2xl p-6">
           <div className="flex items-center justify-between w-full mt-8 p-2 lg:rounded-full md:rounded-full hover:bg-gray-100 cursor-pointer border-2 rounded-lg bg-white">
             <div className="lg:flex md:flex items-center">
               <div className="md:h-12 md:w-12 lg:mb-0 md:mb-0 rounded-full mr-3 bg-[#734EDC]"></div>
@@ -55,7 +55,7 @@ const Game = ({ data, showAnswers, handleNextQuestion, handleAnswer }) => {
                     <div className="flex flex-col">
                       <button
                         className={`p-4 text-[12px] text-center md:text-sm leading-3 font-bold w-full`}
-                      >
+                      > 
                         {answer}
                       </button>
                     </div>
