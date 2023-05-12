@@ -1,6 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
+  const quiz = [
+    {
+      id: "1",
+      name: "QUIZ 1",
+    },
+    {
+      id: "2",
+      name: "QUIZ 2",
+    },
+    {
+      id: "3",
+      name: "QUIZ 3",
+    },
+    {
+      id: "4",
+      name: "QUIZ 4",
+    },
+  ];
   return (
     <div className=" p-10 h-screen w-full bg-[#313131]">
       <div className="bg-[#734EDC] rounded-2xl shadow-2xl h-[500px] md:h-[820px] w-full pl-6 py-6">
@@ -8,43 +27,23 @@ function Home() {
           <p className="font-poppins font-bold text-center text-white text-xl md:text-5xl  ">
             Select a Quiz!
           </p>
-          <div class="flex flex-col md:grid md:grid-cols-2  justify-items-center  gap-6 mt-8 md:mt-4 px-6 md:px-24 ">
+          <div className="flex flex-col md:grid md:grid-cols-2  justify-items-center  gap-6 mt-8 md:mt-4 px-6 md:px-24 ">
             {/* div start */}
-            <div class="flex  justify-center items-center w-full h-12 rounded-full md:w-[330px] md:h-[330px] p-2 lg:rounded-lg md:rounded-lg hover:bg-gray-100 cursor-pointer border-2  bg-white">
-              <div class="lg:flex md:flex items-center">
-                <div class="text-sm leading-3 text-gray-700 font-bold w-full">
-                  quiz1
+
+            {quiz.map((quiz) => (
+              <Link to="/quiz">
+                <div className="flex  justify-center items-center w-full h-12 rounded-full md:w-[330px] md:h-[330px] p-2 lg:rounded-lg md:rounded-lg hover:bg-gray-100 cursor-pointer border-2  bg-white">
+                  <div className="lg:flex md:flex items-center">
+                    <div className="text-sm leading-3 text-gray-700 font-bold w-full">
+                      {quiz.name}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            {/* div end */}
-            <div class="flex  justify-center items-center w-full h-12 rounded-full md:w-[330px] md:h-[330px] p-2 lg:rounded-lg md:rounded-lg hover:bg-gray-100 cursor-pointer border-2  bg-white">
-              <div class="lg:flex md:flex items-center">
-                <div class="text-sm leading-3 text-gray-700 font-bold w-full">
-                  quiz1
-                </div>
-              </div>
-            </div>
-            {/* div end */}
-            <div class="flex  justify-center items-center w-full h-12 rounded-full md:w-[330px] md:h-[330px] p-2 lg:rounded-lg md:rounded-lg hover:bg-gray-100 cursor-pointer border-2  bg-white">
-              <div class="lg:flex md:flex items-center">
-                <div class="text-sm leading-3 text-gray-700 font-bold w-full">
-                  quiz1
-                </div>
-              </div>
-            </div>
-            {/* div end */}
-            <div class="flex  justify-center items-center w-full h-12 rounded-full md:w-[330px] md:h-[330px] p-2 lg:rounded-lg md:rounded-lg hover:bg-gray-100 cursor-pointer border-2  bg-white">
-              <div class="lg:flex md:flex items-center">
-                <div class="text-sm leading-3 text-gray-700 font-bold w-full">
-                  quiz1
-                </div>
-              </div>
-            </div>
-            {/* div end */}
+              </Link>
+            ))}
           </div>
 
-          {/* <img src="./quiz.png" alt="" className="mt-24 md:hidden"></img> */}
+          {/* <img src="./quiz.png" alt="" classNameName="mt-24 md:hidden"></img> */}
         </div>
       </div>
     </div>
