@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 
 const Game = ({ data, showAnswers, handleNextQuestion, handleAnswer }) => {
   const { question, answers, correct_answer } = data;
-  const [timer, setTimer] = useState(60); // Set initial timer value in seconds
+  const [timer, setTimer] = useState(30); 
 
   useEffect(() => {
-    // Start the timer countdown
     const countdown = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
 
-    // Clear the interval when the component unmounts or the timer reaches 0
     if (timer === 0) {
       clearInterval(countdown);
-      handleNextQuestion(); // Proceed to the next question when the timer reaches 0
+      handleNextQuestion(); 
     }
 
     return () => {
@@ -76,14 +74,14 @@ const Game = ({ data, showAnswers, handleNextQuestion, handleAnswer }) => {
               </button>
               )}
                     <div className="flex justify-center items-center mt-4 text-white">
-        <span className="text-lg font-bold">Timer:</span>
-        <span className="text-2xl font-bold ml-2">{timer}s</span>
+        <span className="mb-10 md:mb-0 text-sm md:text-lg font-bold">Timer:</span>
+        <span className="mb-10 md:mb-0 text-sm md:text-lg  font-bold ml-2">{timer}s</span>
       </div>
 
       <img
         src="./questions.svg"
         alt=""
-        className="w-0 h-0 md:w-[400px] md:h-[400px]"
+        className="w-0 h-0 md:w-[350px] md:h-[350px]"
       />
     </div>
   </div>
