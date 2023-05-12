@@ -16,7 +16,7 @@ function Quiz() {
 
   const loadQuestions = async () => {
     try {
-      const response = await axios.get("/api/question");
+      const response = await axios.get("https://quiz-backend-scug.onrender.com/api/question");
       const data = response.data;
   
       if (Array.isArray(data) && data.length > 0) {
