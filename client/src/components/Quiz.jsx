@@ -15,15 +15,23 @@ function Quiz() {
   }, []);
 
   const loadQuestions = async () => {
-    const { data } = await axios.get("/api/question");
-    const shuffledQuestions = shuffleArray(data).slice(0, 5); // Shuffle the questions and select the first 5
-    const formattedQuestions = shuffledQuestions.map((question) => ({
-      ...question,
-      answers: [question.correct_answer, ...question.incorrect_answers].sort(
-        () => Math.random() - 0.5
-      ),
-    }));
-    setQuestions(formattedQuestions);
+    try {
+      const response = await axios.get("/api/question");
+      const data = response.data;
+  
+      if (Array.isArray(data) && data.length > 0) {
+        const shuffledQuestions = shuffleArray(data).slice(0, 5);
+        const formattedQuestions = shuffledQuestions.map((question) => ({
+          ...question,
+          answers: [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.5),
+        }));
+        setQuestions(formattedQuestions);
+      } else {
+        console.log("No questions found.");
+      }
+    } catch (error) {
+      console.log("Error loading questions:", error);
+    }
   };
 
   const handleAnswer = (answer) => {
