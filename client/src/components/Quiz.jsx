@@ -49,7 +49,7 @@ function Quiz() {
       {currentIndex >= questions.length ? (
         <div className="text-white text-center">
           <h1 className="text-3xl md:text-5xl font-bold">
-            Game Ends 🎊
+            Game Ends! 🎊
             <br /> Your score is: {score}/5!
           </h1>
           <button
