@@ -15,7 +15,7 @@ function Quiz() {
   }, []);
 
   const loadQuestions = async () => {
-    const { data } = await axios.get("https://quiz-backend-scug.onrender.com/api/question");
+    const { data } = await axios.get("/api/question");
     const shuffledQuestions = shuffleArray(data).slice(0, 5); // Shuffle the questions and select the first 5
     const formattedQuestions = shuffledQuestions.map((question) => ({
       ...question,
